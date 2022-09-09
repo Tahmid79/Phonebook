@@ -1,38 +1,38 @@
-<div class="container mat-elevation-z5">
-    <h1 class="title">
-        Phonebook
-    </h1>
-
-    <div class="search-bar-container" fxLayout="row" >
-        <div class="menu-container" fxLayout="row">
-            <button class="menu-button" mat-fab>
-                <mat-icon>menu</mat-icon>
-            </button>
+<div ngClass.gt-xs="view" ngClass.xs="mobile-view" >
+    <div ngClass.gt-xs="container" ngClass.xs="container-mobile" >
+        <h1 class="title">
+            Phonebook
+        </h1>
+    
+        <div class="search-bar-container" fxLayout="row" >
+            <div class="menu-container" fxLayout="row">
+                <button class="menu-button" mat-fab>
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+            <div class="search-bar" >
+                <mat-form-field appearance="fill" >
+                    <mat-icon matPrefix>search</mat-icon>
+                    <input matInput placeholder="Search">
+                </mat-form-field>
+            </div>
         </div>
-        <div class="search-bar" >
-            <mat-form-field appearance="fill" >
-                <mat-icon matPrefix>search</mat-icon>
-                <input matInput placeholder="Search">
-            </mat-form-field>
+    
+        <div class="contact-container" *ngFor="let alp of ['A','B','C','D','E','F']">
+            <div class="contact-list">
+                <div class="contact-alphabet" >
+                    <h1 class="alphabet" >{{alp}}</h1>
+                    <div class="underline" ></div>
+                </div>
+                <div class="list">
+                    <ng-container *ngFor="let i of [1,2,3]">
+                        <div class="name-container" >
+                            <h3>Name</h3>
+                            <mat-divider></mat-divider>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
         </div>
     </div>
-
-    <ng-container class="contact-container" *ngFor="let alp of ['A','B','C']">
-        <div class="contact-list">
-            <div class="contact-alphabet" >
-                <h1 class="alphabet" >{{alp}}</h1>
-                <div class="underline" ></div>
-            </div>
-            <div class="list">
-                <ng-container *ngFor="let i of [1,2,3]">
-                    <div class="name-container" >
-                        <h3>Name</h3>
-                        <mat-divider></mat-divider>
-                    </div>
-                </ng-container>
-            </div>
-        </div>
-    </ng-container>
-   
-
 </div>

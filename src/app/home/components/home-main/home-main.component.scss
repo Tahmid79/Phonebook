@@ -1,10 +1,28 @@
-.container{
+@import '~@angular/material/theming';
+
+.view{
     width: 50% ;
     padding: 20px ;
-    height: fit-content;
+    background-color: lightyellow;
+    @include mat-elevation(16);
     margin: 10px auto ;
+    min-height: 100% ;
+}
+
+.mobile-view{
+    width: 100% ;
+    height: fit-content;
     background-color: lightyellow;
 }
+
+.container{
+    height: fit-content;
+}
+
+.container-mobile{
+    padding: 20px ;
+}
+
 
 .title{
     font-weight: bold ;
@@ -36,6 +54,11 @@
         width: calc(100% - 30px);
     }
 
+}
+
+.contact-container{
+    height: 80%;
+    overflow-y: auto ;
 }
 
 .contact-list{
