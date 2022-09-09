@@ -1,0 +1,51 @@
+.container{
+    width: 50% ;
+    padding: 20px ;
+    height: fit-content;
+    margin: 10px auto ;
+    background-color: lightyellow;
+}
+
+.title{
+    font-weight: bold ;
+    font-size: 28px ;
+    color: rgba(52, 24, 24, 0.845) ;
+}
+
+.search-bar{
+    mat-form-field{
+        width: 100% ;    
+    }
+}
+
+.search-bar-container{
+    height: fit-content ;
+    width: 100%;
+
+    .menu-container{
+        width: 70px ;
+        
+        .menu-button{
+            background-color: rgba(52, 24, 24, 0.845) ;
+            zoom: 0.95 ;
+        }
+    }
+
+    .search-bar{
+        width: calc(100% - 30px);
+    }
+
+}
+
+:host{
+    ::ng-deep .mat-form-field-underline{
+        display: none;
+    }
+
+    ::ng-deep{
+        .mat-form-field-flex{
+            border-radius: 30px !important ;
+        }
+    }
+
+}
