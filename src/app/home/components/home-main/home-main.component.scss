@@ -9,9 +9,9 @@
 }
 
 .mobile-view{
-    width: 100% ;
     height: fit-content;
     background-color: lightyellow;
+    padding: 20px ;
 }
 
 .container{
@@ -19,7 +19,8 @@
 }
 
 .container-mobile{
-    padding: 20px ;
+    height: calc(100vh - 40px) ;
+    width: 100% ;
 }
 
 .top-container{
