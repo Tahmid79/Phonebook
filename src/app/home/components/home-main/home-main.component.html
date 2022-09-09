@@ -17,12 +17,22 @@
         </div>
     </div>
 
-    <div class="contact-list">
-        <div class="contact-alphabet" >
-            <h1 class="alphabet" >A</h1>
-            <div class="underline" ></div>
+    <ng-container class="contact-container" *ngFor="let alp of ['A','B','C']">
+        <div class="contact-list">
+            <div class="contact-alphabet" >
+                <h1 class="alphabet" >{{alp}}</h1>
+                <div class="underline" ></div>
+            </div>
+            <div class="list">
+                <ng-container *ngFor="let i of [1,2,3]">
+                    <div class="name-container" >
+                        <h3>Name</h3>
+                        <mat-divider></mat-divider>
+                    </div>
+                </ng-container>
+            </div>
         </div>
-    </div>
-
+    </ng-container>
+   
 
 </div>
