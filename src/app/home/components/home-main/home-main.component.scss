@@ -5,8 +5,7 @@
     padding: 20px ;
     background-color: lightyellow;
     @include mat-elevation(16);
-    margin: 10px auto ;
-    min-height: 100% ;
+    margin: 0 auto ;
 }
 
 .mobile-view{
@@ -16,11 +15,15 @@
 }
 
 .container{
-    height: fit-content;
+    height: calc(100vh - 40px) ;
 }
 
 .container-mobile{
     padding: 20px ;
+}
+
+.top-container{
+    height: 130px ;
 }
 
 
@@ -37,10 +40,9 @@
 }
 
 .search-bar-container{
-    height: fit-content ;
+    height: calc(100% - 130px) ;
     width: 100%;
-    margin-bottom: 10px ;
-
+  
     .menu-container{
         width: 70px ;
         
