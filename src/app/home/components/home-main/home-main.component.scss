@@ -86,8 +86,15 @@
 
 .name-container{
     margin-top: 0.7em;
+    border-radius: 5px ;
     h3{
         color:  #816653 ;
+    }
+    &:hover{
+        background-color: #A8927E;
+        h3{
+            color: #FFF6E0 ;
+        }
     }
 }
 
