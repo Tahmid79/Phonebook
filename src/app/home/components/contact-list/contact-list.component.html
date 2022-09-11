@@ -1,0 +1,47 @@
+<div ngClass.gt-xs="view" ngClass.xs="mobile-view" >
+    <div ngClass.gt-xs="container" ngClass.xs="container-mobile" >
+        <div class="top-container">
+            <h1 class="title">
+                Phonebook
+            </h1>
+        
+            <div class="search-bar-container" fxLayout="row" >
+                <div class="menu-container" fxLayout="row">
+                    <button class="menu-button" mat-fab>
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </div>
+                <div class="search-bar" >
+                    <mat-form-field appearance="fill" >
+                        <mat-icon matPrefix>search</mat-icon>
+                        <input matInput placeholder="Search">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-container" >
+            <ng-container *ngFor="let alphabet of alphabets">
+                <div class="contact-list">
+                    <div class="contact-alphabet" >
+                        <h1 class="alphabet" >{{alphabet}}</h1>
+                        <div class="underline" ></div>
+                    </div>
+                    <div class="list">
+                        <ng-container *ngFor="let i of [1,2,3]">
+                            <div class="name-container" >
+                                <h3>Name</h3>
+                                <mat-divider></mat-divider>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="count-container" fxLayout="row" fxLayoutAlign="center center">
+            <h3 class="count">7 Contacts</h3>
+        </div>
+
+    </div>
+</div>
