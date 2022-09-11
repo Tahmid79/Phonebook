@@ -19,6 +19,27 @@
     border-radius: 5px;
 }
 
+.underline-narrow{
+    width: 100%;
+    background-color:  #8166534D;
+    height: 2px ;
+    border-radius: 5px;
+}
+
+.number-container{
+    text-align: center;
+    padding: 20px ;
+    *{
+        margin: 1px ;
+    }
+    .phone-title{
+        color: #A7917E;
+    }
+    .phone-number{
+        color: #816653;
+    }
+}
+
 ::ng-deep{
     .mat-dialog-container {
         padding: 0px !important;

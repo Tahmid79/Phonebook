@@ -6,7 +6,17 @@
     </div>
 
     <div class="info-container">
+        <div class="number-container">
+            <ng-container *ngFor="let phone of numbers; let index = index">
+                <h3 class="phone-title">Phone {{index + 1}}</h3>
+                <h1 class="phone-number">{{phone}}</h1>
+            </ng-container>
+        </div>
+        <div class="underline-narrow" ></div>    
 
+        <div class="email-container">
+            <h1 class="info-title" ></h1>
+        </div>
     </div>
 
     <div class="actions" >
