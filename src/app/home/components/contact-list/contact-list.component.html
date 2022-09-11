@@ -29,7 +29,7 @@
                     </div>
                     <div class="list">
                         <ng-container *ngFor="let i of [1,2,3]">
-                            <div class="name-container" >
+                            <div class="name-container" (click)="openContactDetails()" >
                                 <h3>Name</h3>
                                 <mat-divider></mat-divider>
                             </div>

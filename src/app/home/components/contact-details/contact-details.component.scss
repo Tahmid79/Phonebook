@@ -1,0 +1,28 @@
+.modal-container{
+    height: 100vh ;
+    width: 50vw ;
+    background-color: #FFF6E0;
+    padding: 24px ;
+}
+
+.title{
+    font-weight: bold ;
+    font-size: 28px ;
+    color: #816653 ;
+    text-align: center ;
+}
+
+.underline{
+    width: 100%;
+    background-color: #816653 ;
+    height: 3px ;
+    border-radius: 5px;
+}
+
+::ng-deep{
+    .mat-dialog-container {
+        padding: 0px !important;
+    }
+}
+
+
