@@ -40,6 +40,26 @@
     }
 }
 
+.info-title{
+    font-weight: 500 ;
+    color: #816653;
+    font-size: 18px ;
+    margin-top: 5px ;
+    margin-bottom: 1px ;
+}
+
+.info{
+    color: #816653;
+    margin-top: 1px ;
+    margin-bottom: 5px ;
+}
+
+.overflow-ellipsis{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 ::ng-deep{
     .mat-dialog-container {
         padding: 0px !important;
