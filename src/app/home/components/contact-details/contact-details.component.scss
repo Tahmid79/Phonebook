@@ -79,12 +79,20 @@
     font-size: 1.2em ;
 }
 
+.back-icon{
+    font-size: 20px ;
+    color:#A7917E;
+    cursor: pointer;
+    margin-top: 5px ;
+    width: 15px !important ;
+}
+
 .back-button{
-    text-align: center ;
     font-size: 20px ;
     color:#A7917E;
     margin: 1px ;
     margin-top: 3px ;
+    cursor: pointer;
 }
 
 .overflow-ellipsis{
