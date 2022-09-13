@@ -5,6 +5,10 @@
     padding: 24px ;
 }
 
+.title-container{
+    height: 80px ;
+}
+
 .title{
     font-weight: bold ;
     font-size: 28px ;
@@ -40,6 +44,11 @@
     }
 }
 
+.info-container{
+    height: calc(100vh - calc(160px + 48px)); // height of title and actions container is deducted
+    overflow-y: auto ;
+}
+
 .info-title{
     font-weight: 500 ;
     color: #816653;
@@ -53,6 +62,10 @@
     margin-top: 1px ;
     margin-bottom: 5px ;
     font-size: 16px ;
+}
+
+.actions{
+    height: 80px ;
 }
 
 .overflow-ellipsis{
