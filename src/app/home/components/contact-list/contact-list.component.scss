@@ -87,6 +87,9 @@
 .name-container{
     margin-top: 0.7em;
     border-radius: 5px ;
+    mat-divider{
+        border-top-color:  #8166534D; 
+    }
     h3{
         color:  #816653 ;
     }
