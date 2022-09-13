@@ -5,7 +5,7 @@
         <div class="underline" ></div>    
     </div>
 
-    <div class="info-container">
+    <div class="information-container">
         <div class="number-container">
             <ng-container *ngFor="let phone of numbers; let index = index">
                 <h3 class="phone-title">Phone {{index + 1}}</h3>
@@ -25,12 +25,19 @@
             <div class="underline-narrow" ></div>    
             <h1 class="info-title overflow-ellipsis" >Notes</h1>
             <p class="info">{{loremIpsum}}</p>
+            <div class="underline-narrow" ></div>   
         </div>
 
     </div>
 
     <div class="actions" >
-        
+        <div class="action-button-container" fxLayout="row" fxLayoutAlign="space-between" >
+            <button class="action-button" mat-button>Message</button>
+            <button class="action-button" mat-button>Call</button>
+        </div>
+        <div>
+            <h3 class="back-button" >{{back}}</h3>
+        </div>
     </div>
 
 </div>

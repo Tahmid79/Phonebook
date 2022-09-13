@@ -16,6 +16,7 @@ export class ContactDetailsComponent implements OnInit {
     {infoType: 'Profile' , infoValue : 'www.linkedin.com/237494505/baybay00'},
     {infoType: 'Address' , infoValue : 'House no. somewhere, Road no. 23'},
   ] ;
+  back = `< Back` ;
 
   constructor() { }
 
