@@ -94,7 +94,6 @@
 .back-icon{
     font-size: 20px ;
     color:#A7917E;
-    cursor: pointer;
     margin-top: 5px ;
     width: 15px !important ;
 }
@@ -104,13 +103,16 @@
     color:#A7917E;
     margin: 1px ;
     margin-top: 3px ;
-    cursor: pointer;
 }
 
 .overflow-ellipsis{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.pointer{
+    cursor: pointer;
 }
 
 ::ng-deep{
