@@ -33,7 +33,22 @@
                 </div>
             </div>
         </div>
-      
+
+        <div class="info-container">
+            <div class="underline-narrow" ></div>
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <div class="info-segment">
+                    <h1 class="info-title overflow-ellipsis" >{{info.infoType}}</h1>
+                    <h3 class="info overflow-ellipsis">{{info.infoValue}}</h3>
+                </div>
+                <div class="phone-icon-container" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center" >
+                    <div class="email-button-container">
+                        <mat-icon class="material-icons-outlined">forward_to_inbox</mat-icon>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        
         <ng-container *ngFor="let info of information">
             <div class="info-container">
                 <div class="underline-narrow" ></div>  
