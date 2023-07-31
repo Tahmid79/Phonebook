@@ -1,8 +1,17 @@
 <div class="modal-container" ngClass.gt-sm="large-size" ngClass.lt-md="small-size" >
 
-    <div class="title-container">
-        <h1 class="title" >Person Name</h1>
-        <div class="underline" ></div>    
+    <div class="title-container" fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="back-container" fxLayout="row" fxLayoutAlign="center center">
+            <div class="pointer" fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="back-icon">arrow_back_ios</mat-icon>
+                <h3 class="back-button" mat-dialog-close >{{back}}</h3>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+            <mat-icon class="material-icons-outlined">ios_share</mat-icon>
+            <mat-icon class="material-icons-outlined">edit</mat-icon>
+            <mat-icon class="material-icons-outlined">delete</mat-icon>
+        </div>
     </div>
 
     <div class="information-container">
@@ -65,12 +74,11 @@
                 <h1 class="info-title overflow-ellipsis" >Notes</h1>
                 <p class="info">{{loremIpsum}}</p>
             </div>  
-            <div class="underline-narrow" ></div>   
         </div>
 
     </div>
 
-    <div class="actions" >
+    <!-- <div class="actions" >
         <div class="action-button-container" fxLayout="row" fxLayoutAlign="space-between" >
             <button class="action-button" mat-button>Message</button>
             <button class="action-button" mat-button>Call</button>
@@ -81,6 +89,6 @@
                 <h3 class="back-button" mat-dialog-close >{{back}}</h3>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </div>

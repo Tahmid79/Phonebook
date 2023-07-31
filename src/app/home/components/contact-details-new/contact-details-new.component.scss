@@ -17,6 +17,7 @@
 
 .title-container{
     height: 60px ;
+    padding-right: 35px;
 }
 
 .title{
@@ -88,7 +89,8 @@ $phone-icon-size: 25px;
 }
 
 .information-container{
-    height: calc(100% - calc(160px + 48px)); // height of title and actions container is deducted
+    // height: calc(100% - calc(160px + 48px)); // height of title and actions container is deducted
+    height: calc(100% - 100px);
     overflow-y: auto ;
 }
 
@@ -153,19 +155,19 @@ $person-icon-size: 80px;
 }
 
 .back-container{
-    margin-top: 10px ;
+    // margin-top: 10px ;
 }
 
 .back-icon{
     font-size: 20px ;
-    color:#A7917E;
+    color:#523A30;
     margin-top: 5px ;
     width: 15px !important ;
 }
 
 .back-button{
     font-size: 20px ;
-    color:#A7917E;
+    color:#523A30;
     margin: 1px ;
     margin-top: 3px ;
 }
