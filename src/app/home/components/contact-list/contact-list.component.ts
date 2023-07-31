@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ContactDetailsComponent } from '../contact-details/contact-details.component';
+import { ContactDetailsNewComponent } from '../contact-details-new/contact-details-new.component';
 
 @Component({
   selector: 'app-contact-list',
@@ -17,7 +17,7 @@ export class ContactListComponent implements OnInit {
   }
 
   openContactDetails(){
-      this.dialog.open(ContactDetailsComponent) ;
+      this.dialog.open(ContactDetailsNewComponent) ;
   }
 
 }
