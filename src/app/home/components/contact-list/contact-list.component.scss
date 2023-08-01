@@ -15,16 +15,16 @@
 }
 
 .container{
-    height: calc(100vh - 130px) ;
+    height: calc(100vh - 180px) ;
 }
 
 .container-mobile{
-    height: calc(100vh - 130px) ;
+    height: calc(100vh - 180px) ;
     width: 100% ;
 }
 
 .top-container{
-    height: 130px ;
+    height: 100px ;
     background: #523A30;
     *{
         color: white;
@@ -71,7 +71,7 @@
 }
 
 .contact-container{
-    height: calc(100% - calc(130px + 45px)) ; //height of top and bottom container is deducted
+    height: calc(100% - 50px) ; //height of top and bottom container is deducted
     overflow-y: auto ;
 }
 
