@@ -88,11 +88,15 @@ $phone-icon-size: 25px;
     }
 }
 
-.names-container{
+.form-field-container{
     padding: 10px;
     width: calc(100% - 20px);
-    .mat-form-field , .underline-narrow{
+    .mat-form-field{
         width: 97%;
+    }
+    .underline-narrow{
+        width: 95%;
+        margin-left: 1%;
     }
 }
 

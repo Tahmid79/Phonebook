@@ -22,63 +22,48 @@
             </div>
         </div>
         
-        <div class="names-container">
+        <div class="form-field-container">
             <mat-form-field appearance="fill" >
-                <input class="brown-color" matInput placeholder="First Name">
+                <input matInput placeholder="First Name">
             </mat-form-field>
             <mat-form-field appearance="fill" >
-                <input class="brown-color" matInput placeholder="Middle Name">
+                <input matInput placeholder="Middle Name">
             </mat-form-field>
             <mat-form-field appearance="fill" >
-                <input class="brown-color" matInput placeholder="Last Name">
+                <input matInput placeholder="Last Name">
             </mat-form-field>
             <div class="underline-narrow" ></div>
         </div>
 
-        <!-- <div class="underline" ></div>   -->
-
-        <div class="number-container">
-            <h3 class="phone-title">Phone 1</h3>
-            <div class="phone-info-container" fxLayout="row" fxLayoutAlign="space-between center">
-                <h1 class="phone-number">{{phone1}}</h1>
-                <div class="phone-icon-container" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center" >
-                    <div class="call-button-container">
-                        <mat-icon class="material-icons-outlined">call</mat-icon>
-                    </div>
-                    <div class="message-button-container">
-                        <mat-icon class="material-icons-outlined">chat</mat-icon>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="info-container">
+        <div class="form-field-container">
+            <mat-form-field appearance="fill" >
+                <input matInput placeholder="Phone">
+            </mat-form-field>
             <div class="underline-narrow" ></div>
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-                <div class="info-segment">
-                    <h1 class="info-title overflow-ellipsis" >{{info.infoType}}</h1>
-                    <h3 class="info overflow-ellipsis">{{info.infoValue}}</h3>
-                </div>
-                <div class="phone-icon-container" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center" >
-                    <div class="email-button-container">
-                        <mat-icon class="material-icons-outlined">forward_to_inbox</mat-icon>
-                    </div>
-                </div>
-            </div>  
         </div>
-        
-        <ng-container *ngFor="let info of information">
-            <div class="info-container">
-                <div class="underline-narrow" ></div>  
-                <div class="info-segment">
-                    <h1 class="info-title overflow-ellipsis" >{{info.infoType}}</h1>
-                    <h3 class="info overflow-ellipsis">{{info.infoValue}}</h3>
-                </div>  
-            </div>
-        </ng-container>
+
+        <div class="form-field-container">
+            <mat-form-field appearance="fill" >
+                <input matInput placeholder="Email">
+            </mat-form-field>
+            <div class="underline-narrow" ></div>
+        </div>
+
+        <div class="form-field-container">
+            <mat-form-field appearance="fill" >
+                <input matInput placeholder="Profile">
+            </mat-form-field>
+            <div class="underline-narrow" ></div>
+        </div>
+
+        <div class="form-field-container">
+            <mat-form-field appearance="fill" >
+                <input matInput placeholder="Address">
+            </mat-form-field>
+            <div class="underline-narrow" ></div>
+        </div>
        
         <div class="info-container">
-            <div class="underline-narrow" ></div>  
             <div class="info-segment">
                 <h1 class="info-title overflow-ellipsis" >Notes</h1>
                 <p class="info">{{loremIpsum}}</p>
@@ -86,18 +71,5 @@
         </div>
 
     </div>
-
-    <!-- <div class="actions" >
-        <div class="action-button-container" fxLayout="row" fxLayoutAlign="space-between" >
-            <button class="action-button" mat-button>Message</button>
-            <button class="action-button" mat-button>Call</button>
-        </div>
-        <div class="back-container" fxLayout="row" fxLayoutAlign="center center">
-            <div class="pointer" fxLayout="row" fxLayoutAlign="start center">
-                <mat-icon class="back-icon">arrow_back_ios</mat-icon>
-                <h3 class="back-button" mat-dialog-close >{{back}}</h3>
-            </div>
-        </div>
-    </div> -->
 
 </div>
