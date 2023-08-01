@@ -20,6 +20,8 @@ export class ContactAddEditComponent implements OnInit {
     {infoType: 'Address' , infoValue : 'House no. somewhere, Road no. 23'},
   ] ;
   back = `Back` ;
+  cancel="Cancel";
+  save="Save";
 
   constructor() { }
 

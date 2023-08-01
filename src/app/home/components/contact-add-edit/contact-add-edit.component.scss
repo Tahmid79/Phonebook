@@ -15,9 +15,13 @@
     width: 100vw ;
 }
 
-.title-container{
+.actions-container{
     height: 60px ;
-    padding-right: 35px;
+    padding: 34px ;
+    background: #523A30;
+    *{
+        color: #FFF6E0;
+    }
 }
 
 .title{
@@ -102,7 +106,7 @@ $phone-icon-size: 25px;
 
 .information-container{
     // height: calc(100% - calc(160px + 48px)); // height of title and actions container is deducted
-    height: calc(100% - 100px);
+    height: calc(100% - 120px);
     overflow-y: auto ;
 }
 
@@ -177,11 +181,12 @@ $person-icon-size: 80px;
     width: 15px !important ;
 }
 
-.back-button{
+.back-button , .save-button{
     font-size: 20px ;
     color:#523A30;
     margin: 1px ;
     margin-top: 3px ;
+    text-decoration: underline;
 }
 
 .overflow-ellipsis{
