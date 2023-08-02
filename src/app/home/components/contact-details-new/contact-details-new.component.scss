@@ -17,7 +17,16 @@
 
 .title-container{
     height: 60px ;
-    padding-right: 35px;
+    padding: 24px ;
+    // padding-right: 55px;
+    width: 100%;
+    background: #523A30;
+    .action-icon-container{
+        *{
+            color: #FFF6E0;
+            cursor: pointer;
+        }
+    }
 }
 
 .title{
@@ -90,7 +99,7 @@ $phone-icon-size: 25px;
 
 .information-container{
     // height: calc(100% - calc(160px + 48px)); // height of title and actions container is deducted
-    height: calc(100% - 100px);
+    height: calc(100% - 115px);
     overflow-y: auto ;
 }
 
@@ -160,14 +169,14 @@ $person-icon-size: 80px;
 
 .back-icon{
     font-size: 20px ;
-    color:#523A30;
+    color: #FFF6E0;
     margin-top: 5px ;
     width: 15px !important ;
 }
 
 .back-button{
     font-size: 20px ;
-    color:#523A30;
+    color: #FFF6E0;
     margin: 1px ;
     margin-top: 3px ;
 }
