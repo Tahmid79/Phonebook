@@ -23,7 +23,7 @@
         </div>
 
         <div class="person-name-container" >
-            <h1 class="person-name" >Bayejeed Hasan</h1>
+            <h1 class="person-name" >{{ getName() }}</h1>
         </div>
 
         <div class="underline" ></div>  
@@ -31,12 +31,12 @@
         <div class="number-container">
             <h3 class="phone-title">Phone 1</h3>
             <div class="phone-info-container" fxLayout="row" fxLayoutAlign="space-between center">
-                <h1 class="phone-number">{{phone1}}</h1>
+                <h1 class="phone-number">{{data.phone}}</h1>
                 <div class="phone-icon-container" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center" >
-                    <div class="call-button-container">
+                    <div class="call-button-container pointer">
                         <mat-icon class="material-icons-outlined">call</mat-icon>
                     </div>
-                    <div class="message-button-container">
+                    <div class="message-button-container pointer">
                         <mat-icon class="material-icons-outlined">chat</mat-icon>
                     </div>
                 </div>
@@ -47,32 +47,38 @@
             <div class="underline-narrow" ></div>
             <div fxLayout="row" fxLayoutAlign="space-between center">
                 <div class="info-segment">
-                    <h1 class="info-title overflow-ellipsis" >{{info.infoType}}</h1>
-                    <h3 class="info overflow-ellipsis">{{info.infoValue}}</h3>
+                    <h1 class="info-title overflow-ellipsis" >Email</h1>
+                    <h3 class="info overflow-ellipsis">{{data.email}}</h3>
                 </div>
                 <div class="phone-icon-container" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center" >
-                    <div class="email-button-container">
+                    <div class="email-button-container pointer">
                         <mat-icon class="material-icons-outlined">forward_to_inbox</mat-icon>
                     </div>
                 </div>
             </div>  
         </div>
         
-        <ng-container *ngFor="let info of information">
-            <div class="info-container">
-                <div class="underline-narrow" ></div>  
-                <div class="info-segment">
-                    <h1 class="info-title overflow-ellipsis" >{{info.infoType}}</h1>
-                    <h3 class="info overflow-ellipsis">{{info.infoValue}}</h3>
-                </div>  
-            </div>
-        </ng-container>
-       
+        <div class="info-container">
+            <div class="underline-narrow" ></div>  
+            <div class="info-segment">
+                <h1 class="info-title overflow-ellipsis" >Profile</h1>
+                <h3 class="info overflow-ellipsis">{{data.profile}}</h3>
+            </div>  
+        </div>
+
+        <div class="info-container">
+            <div class="underline-narrow" ></div>  
+            <div class="info-segment">
+                <h1 class="info-title overflow-ellipsis" >Address</h1>
+                <h3 class="info overflow-ellipsis">{{data.address}}</h3>
+            </div>  
+        </div>
+        
         <div class="info-container">
             <div class="underline-narrow" ></div>  
             <div class="info-segment">
                 <h1 class="info-title overflow-ellipsis" >Notes</h1>
-                <p class="info">{{loremIpsum}}</p>
+                <p class="info">{{data.note}}</p>
             </div>  
         </div>
 

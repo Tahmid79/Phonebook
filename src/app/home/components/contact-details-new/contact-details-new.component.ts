@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ContactDetails } from '../../interfaces/ContactDetails';
 
 @Component({
   selector: 'app-contact-details-new',
@@ -21,9 +23,12 @@ export class ContactDetailsNewComponent implements OnInit {
   ] ;
   back = `Back` ;
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: ContactDetails) { }
 
   ngOnInit(): void {
+    if(!this.data){
+      this.data = this.sampleContact;
+    }
   }
 
   loremIpsum = `Lorem ipsum dolor sit amet, consectetur
@@ -33,5 +38,24 @@ export class ContactDetailsNewComponent implements OnInit {
   exercitation ullamco laboris nisi ut aliquip ex
   ea commodo consequat. Duis aute irure
   dolor in reprehenderit in voluptate velit.` ;
+
+  sampleContact: ContactDetails = {
+    firstName: 'Bayejeed',
+    middleName: '',
+    lastName: 'Hasan',
+    phone: '+88 017 XXXXXXX',
+    email: 'baybaythegoat@gmail.com',
+    profile: 'www.linkedin.com/237494505/baybay00',
+    address: 'House no. somewhere, Road no. 23',
+    note: this.loremIpsum,
+  };
+
+  getName(): string{
+    const fname = this.data.firstName ? this.data.firstName : '' ;
+    const mname = this.data.middleName ? this.data.middleName : '' ;
+    const lname = this.data.lastName ? this.data.lastName : '' ;
+    const result = `${fname} ${mname} ${lname}`;
+    return result;
+  }
 
 }

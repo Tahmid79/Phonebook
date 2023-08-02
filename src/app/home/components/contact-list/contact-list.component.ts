@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ContactDetailsNewComponent } from '../contact-details-new/contact-details-new.component';
 import { ContactAddEditComponent } from '../contact-add-edit/contact-add-edit.component';
+import { ContactDetails } from '../../interfaces/ContactDetails';
 
 @Component({
   selector: 'app-contact-list',
