@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ContactDetails } from '../../interfaces/ContactDetails';
+import { ContactAddEditComponent } from '../contact-add-edit/contact-add-edit.component';
 
 @Component({
   selector: 'app-contact-details-new',
@@ -23,7 +24,7 @@ export class ContactDetailsNewComponent implements OnInit {
   ] ;
   back = `Back` ;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: ContactDetails) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: ContactDetails,public dialog: MatDialog) { }
 
   ngOnInit(): void {
     if(!this.data){
@@ -56,6 +57,10 @@ export class ContactDetailsNewComponent implements OnInit {
     const lname = this.data.lastName ? this.data.lastName : '' ;
     const result = `${fname} ${mname} ${lname}`;
     return result;
+  }
+
+  openContactDetailsEdit(){
+    this.dialog.open(ContactAddEditComponent, {data: this.data}) ;
   }
 
 }

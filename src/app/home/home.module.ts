@@ -8,6 +8,7 @@ import { ContactListComponent } from './components/contact-list/contact-list.com
 import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
 import { ContactDetailsNewComponent } from './components/contact-details-new/contact-details-new.component';
 import { ContactAddEditComponent } from './components/contact-add-edit/contact-add-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ContactAddEditComponent } from './components/contact-add-edit/contact-a
   imports: [
     CommonModule,
     HomeRoutingModule,
+    ReactiveFormsModule,
     SharedModule
   ]
 })
