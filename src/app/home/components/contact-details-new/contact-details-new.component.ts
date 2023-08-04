@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ContactDetails } from '../../interfaces/ContactDetails';
 import { ContactAddEditComponent } from '../contact-add-edit/contact-add-edit.component';
+import { PhonebookService } from '../../services/phonebook.service';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-contact-details-new',
@@ -14,7 +16,7 @@ export class ContactDetailsNewComponent implements OnInit {
   phone1 = '+88 017 XXXXXXX' ;
   phone2 = '+60 011 XXXXXXX' ;
   email = 'baybaythegoat@gmail.com' ;
-
+  loading = false;
   info = {infoType: 'Email' , infoValue : 'baybaythegoat@gmail.com'} ;
 
   information = [
@@ -24,7 +26,11 @@ export class ContactDetailsNewComponent implements OnInit {
   ] ;
   back = `Back` ;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: ContactDetails,public dialog: MatDialog) { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: ContactDetails,
+    public dialog: MatDialog,
+    private phonebookService: PhonebookService
+  ){}
 
   ngOnInit(): void {
     if(!this.data){
@@ -61,7 +67,18 @@ export class ContactDetailsNewComponent implements OnInit {
   }
 
   openContactDetailsEdit(){
-    this.dialog.open(ContactAddEditComponent, {data: this.data}) ;
+    const dialogRef = this.dialog.open(ContactAddEditComponent, {data: this.data}) ;
+    dialogRef.afterClosed().subscribe(result => {
+      // this.initData();
+    });
+  }
+
+  async getUserData(){
+    try{
+      const user = await lastValueFrom(this.phonebookService.getContactById(this.data.id));
+    }catch(error){
+
+    }
   }
 
 }

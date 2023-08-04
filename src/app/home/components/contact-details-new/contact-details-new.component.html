@@ -14,7 +14,7 @@
 
 <div class="modal-container" ngClass.gt-sm="large-size" ngClass.lt-md="small-size" >
 
-    <div class="information-container">
+    <div *ngIf="!loading" class="information-container">
 
         <div class="profile-img-container" fxLayout="row" fxLayoutAlign="center center">
             <div class="person-icon-container">
@@ -84,17 +84,10 @@
 
     </div>
 
-    <!-- <div class="actions" >
-        <div class="action-button-container" fxLayout="row" fxLayoutAlign="space-between" >
-            <button class="action-button" mat-button>Message</button>
-            <button class="action-button" mat-button>Call</button>
+    <div *ngIf="loading" class="information-container">
+        <div *ngIf="loading" class="loading-container" ngClass.gt-xs="container" ngClass.xs="container-mobile" >
+            <mat-spinner diameter="150" class="spinner"></mat-spinner>
         </div>
-        <div class="back-container" fxLayout="row" fxLayoutAlign="center center">
-            <div class="pointer" fxLayout="row" fxLayoutAlign="start center">
-                <mat-icon class="back-icon">arrow_back_ios</mat-icon>
-                <h3 class="back-button" mat-dialog-close >{{back}}</h3>
-            </div>
-        </div>
-    </div> -->
+    </div>
 
 </div>

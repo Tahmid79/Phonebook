@@ -18,6 +18,11 @@ export class PhonebookService {
     return this.http.get<ContactDetails[]>(url);
   }
 
+  getContactById(id: string): Observable<ContactDetails>{
+    const url = `${this.phonebookApiUrl}/users/${id}` ;
+    return this.http.get<ContactDetails>(url);
+  }
+
   addNewContact(contact: ContactDetails): Observable<ContactDetails>{
     const url = this.phonebookApiUrl + '/users';
     return this.http.post<ContactDetails>(url, contact);
