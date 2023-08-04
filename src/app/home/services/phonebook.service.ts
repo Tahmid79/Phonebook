@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ContactDetails } from '../interfaces/ContactDetails';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +13,9 @@ export class PhonebookService {
 
   constructor(private http: HttpClient) { }
 
-  getContacts(){
+  getContacts(): Observable<ContactDetails[]> {
     const url = this.phonebookApiUrl + '/users';
-    return this.http.get(url);
+    return this.http.get<ContactDetails[]>(url);
   }
 
 }
