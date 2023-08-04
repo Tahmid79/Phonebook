@@ -26,7 +26,7 @@ export class ContactAddEditComponent implements OnInit {
   });
 
   back = `Back` ;
-  cancel="Cancel";
+  cancelText="Cancel";
   save="Save";
 
   isEditMode = false;
@@ -56,6 +56,7 @@ export class ContactAddEditComponent implements OnInit {
   }
 
   async saveContactDetails(){
+    if(this.contactFormData.invalid)return;
     const contactData: ContactDetails = this.contactFormData.value;
     try{
       let response = null;
@@ -70,6 +71,10 @@ export class ContactAddEditComponent implements OnInit {
     }catch(error){
       alert('Could not add user');
     }
+  }
+
+  cancel(){
+    this.matDialogRef.close();
   }
 
 }
