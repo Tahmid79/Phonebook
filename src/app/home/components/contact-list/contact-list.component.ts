@@ -33,7 +33,12 @@ export class ContactListComponent implements OnInit {
   }
 
   openContactDetails(contact: ContactDetails){
-    this.dialog.open(ContactDetailsNewComponent, {data: contact}) ;
+    const dialogRef = this.dialog.open(ContactDetailsNewComponent, {data: contact}) ;
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.isEdited){
+        this.initData();
+      }
+    });
   }
 
   addNewContact(){
@@ -69,6 +74,14 @@ export class ContactListComponent implements OnInit {
     }catch(error){
     }
     this.loading = false;
+  }
+
+  getName(contact: ContactDetails): string{
+    const fname = contact.firstName ? contact.firstName : '' ;
+    const mname = contact.middleName ? contact.middleName : '' ;
+    const lname = contact.lastName ? contact.lastName : '' ;
+    const result = `${fname} ${mname} ${lname}`;
+    return result;
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ContactDetails } from '../../interfaces/ContactDetails';
 import { ContactAddEditComponent } from '../contact-add-edit/contact-add-edit.component';
 import { PhonebookService } from '../../services/phonebook.service';
@@ -18,6 +18,7 @@ export class ContactDetailsNewComponent implements OnInit {
   email = 'baybaythegoat@gmail.com' ;
   loading = false;
   info = {infoType: 'Email' , infoValue : 'baybaythegoat@gmail.com'} ;
+  dataEdited = false;
 
   information = [
     // {infoType: 'Email' , infoValue : 'baybaythegoat@gmail.com'},
@@ -29,6 +30,7 @@ export class ContactDetailsNewComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: ContactDetails,
     public dialog: MatDialog,
+    public matDialogRef: MatDialogRef<ContactDetailsNewComponent>,
     private phonebookService: PhonebookService
   ){}
 
@@ -85,5 +87,11 @@ export class ContactDetailsNewComponent implements OnInit {
     }catch(error){
     }
     this.loading = false;
+    this.dataEdited = true;
   }
+
+  close(){
+    this.matDialogRef.close({isEdited: this.dataEdited});
+  }
+
 }

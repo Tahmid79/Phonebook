@@ -1,8 +1,8 @@
 <div class="title-container" fxLayout="row" fxLayoutAlign="space-between center" ngClass.gt-sm="large-size" ngClass.lt-md="small-size">
     <div class="back-container" fxLayout="row" fxLayoutAlign="center center">
-        <div class="pointer" fxLayout="row" fxLayoutAlign="start center">
+        <div class="pointer" (click)="close()" fxLayout="row" fxLayoutAlign="start center">
             <mat-icon class="back-icon">arrow_back_ios</mat-icon>
-            <h3 class="back-button light-yellow-color" mat-dialog-close >{{back}}</h3>
+            <h3 class="back-button light-yellow-color">{{back}}</h3>
         </div>
     </div>
     <div class="action-icon-container" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
