@@ -222,6 +222,10 @@ mat-label {
     color: rgba(82, 58, 48, 0.60);
 }
 
+.bottom-margin{
+    margin-bottom: 30px ;
+}
+
 :host{
     ::ng-deep .mat-form-field-underline{
         display: none;
