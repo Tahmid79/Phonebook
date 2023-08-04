@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  phoneBookApiUrl:'localhost:3000'
+  phoneBookApiUrl:'https://phonebook-api-724r.onrender.com'
 };
