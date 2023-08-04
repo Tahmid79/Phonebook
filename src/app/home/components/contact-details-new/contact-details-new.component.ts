@@ -41,6 +41,7 @@ export class ContactDetailsNewComponent implements OnInit {
   dolor in reprehenderit in voluptate velit.` ;
 
   sampleContact: ContactDetails = {
+    id: "1",
     firstName: 'Bayejeed',
     middleName: '',
     lastName: 'Hasan',
