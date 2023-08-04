@@ -194,6 +194,11 @@ $person-icon-size: 80px;
     text-decoration: underline;
 }
 
+.save-disabled{
+    opacity: 0.5;
+    cursor: not-allowed! important;
+}
+
 .overflow-ellipsis{
     white-space: nowrap;
     overflow: hidden;
