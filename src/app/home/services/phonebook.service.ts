@@ -33,4 +33,9 @@ export class PhonebookService {
     return this.http.put<ContactDetails>(url, contact);
   }
 
+  deleteContact(id: string): Observable<any>{
+    const url = `${this.phonebookApiUrl}/users/${id}` ;
+    return this.http.delete<ContactDetails>(url);
+  }
+
 }
