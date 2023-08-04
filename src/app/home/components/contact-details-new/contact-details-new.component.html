@@ -23,7 +23,7 @@
         </div>
 
         <div class="person-name-container" >
-            <h1 class="person-name" >{{ getName() }}</h1>
+            <h1 class="person-name" >{{ getName() ? getName() : 'N/A'}}</h1>
         </div>
 
         <div class="underline" ></div>  
@@ -31,7 +31,7 @@
         <div class="number-container">
             <h3 class="phone-title">Phone 1</h3>
             <div class="phone-info-container" fxLayout="row" fxLayoutAlign="space-between center">
-                <h1 class="phone-number">{{data.phone}}</h1>
+                <h1 class="phone-number">{{data.phone ? data.phone : 'N/A'}}</h1>
                 <div class="phone-icon-container" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center" >
                     <div class="call-button-container pointer">
                         <mat-icon class="material-icons-outlined">call</mat-icon>
@@ -48,7 +48,7 @@
             <div fxLayout="row" fxLayoutAlign="space-between center">
                 <div class="info-segment">
                     <h1 class="info-title overflow-ellipsis" >Email</h1>
-                    <h3 class="info overflow-ellipsis">{{data.email}}</h3>
+                    <h3 class="info overflow-ellipsis">{{data.email ? data.email : 'N/A'}}</h3>
                 </div>
                 <div class="phone-icon-container" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center" >
                     <div class="email-button-container pointer">
@@ -62,7 +62,7 @@
             <div class="underline-narrow" ></div>  
             <div class="info-segment">
                 <h1 class="info-title overflow-ellipsis" >Profile</h1>
-                <h3 class="info overflow-ellipsis">{{data.profile}}</h3>
+                <h3 class="info overflow-ellipsis">{{data.profile ? data.profile : 'N/A'}}</h3>
             </div>  
         </div>
 
@@ -70,7 +70,7 @@
             <div class="underline-narrow" ></div>  
             <div class="info-segment">
                 <h1 class="info-title overflow-ellipsis" >Address</h1>
-                <h3 class="info overflow-ellipsis">{{data.address}}</h3>
+                <h3 class="info overflow-ellipsis">{{data.address ? data.address : 'N/A'}}</h3>
             </div>  
         </div>
         
@@ -78,7 +78,7 @@
             <div class="underline-narrow" ></div>  
             <div class="info-segment">
                 <h1 class="info-title overflow-ellipsis" >Notes</h1>
-                <p class="info">{{data.note}}</p>
+                <p class="info">{{data.note ? data.note : 'N/A'}}</p>
             </div>  
         </div>
 
