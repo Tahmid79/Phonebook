@@ -35,7 +35,7 @@ export class ContactListComponent implements OnInit {
   openContactDetails(contact: ContactDetails){
     const dialogRef = this.dialog.open(ContactDetailsNewComponent, {data: contact}) ;
     dialogRef.afterClosed().subscribe(result => {
-      if(result.isEdited){
+      if(result.isEdited || result.isDeleted){
         this.initData();
       }
     });

@@ -21,6 +21,7 @@ export class ContactDetailsNewComponent implements OnInit {
   loading = false;
   info = {infoType: 'Email' , infoValue : 'baybaythegoat@gmail.com'} ;
   dataEdited = false;
+  deleteInProgess = false;
 
   information = [
     // {infoType: 'Email' , infoValue : 'baybaythegoat@gmail.com'},
@@ -101,9 +102,22 @@ export class ContactDetailsNewComponent implements OnInit {
     }
   }
 
-  closeDeleteModal(confirm: boolean){
+  async closeDeleteModal(confirm: boolean){
     if(this.deleteDialogRef.modal){
-      this.deleteDialogRef.modal.close();
+      if(confirm){
+        this.deleteInProgess = true;
+        const response = await lastValueFrom(this.phonebookService.deleteContact(this.data.id));
+        this.deleteInProgess = false;
+        if(response){ // delete successful
+          this.deleteDialogRef.modal.close();
+          this.matDialogRef.close({isDeleted: true});
+        }else{// delete failed
+          this.deleteDialogRef.modal.close();
+          alert("Failed to delete contact");
+        } 
+      }else{
+        this.deleteDialogRef.modal.close();
+      }
     }
   }
 

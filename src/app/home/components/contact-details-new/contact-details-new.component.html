@@ -97,6 +97,7 @@
         <div class="delete-modal-header">
             <h2 matDialogTitle>Delete</h2>
         </div>
+        <mat-progress-bar *ngIf="deleteInProgess" mode="indeterminate"></mat-progress-bar>
         <div fxFlex>
             <div class="delete-dialog-body">
                 <p>Are you sure you want to delete?</p>
@@ -104,7 +105,7 @@
         </div>
         <div class="delete-dialog-actions" fxLayoutAlign="space-between center">
             <button (click)="closeDeleteModal(false)" mat-button color="primary">Cancel</button>
-            <button (click)="closeDeleteModal(true)" mat-button color="primary">Confirm</button>
+            <button (click)="closeDeleteModal(true)" mat-button color="warn">Confirm</button>
         </div>
     </div>
 </ng-template>
