@@ -33,7 +33,7 @@ export class ContactListComponent implements OnInit {
   }
 
   openContactDetails(contact: ContactDetails){
-    const dialogRef = this.dialog.open(ContactDetailsNewComponent, {data: contact}) ;
+    const dialogRef = this.dialog.open(ContactDetailsNewComponent, {data: contact, autoFocus: false}) ;
     dialogRef.afterClosed().subscribe(result => {
       if(result.isEdited || result.isDeleted){
         this.initData();
@@ -42,9 +42,11 @@ export class ContactListComponent implements OnInit {
   }
 
   addNewContact(){
-    const dialogRef = this.dialog.open(ContactAddEditComponent) ;
+    const dialogRef = this.dialog.open(ContactAddEditComponent, {autoFocus: false}) ;
     dialogRef.afterClosed().subscribe(result => {
-      this.initData();
+      if(result.isCreated){
+        this.initData();
+      }
     });
   }
 

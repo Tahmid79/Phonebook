@@ -97,7 +97,7 @@ export class ContactDetailsNewComponent implements OnInit {
 
   openDeleteConfirmation(){
     if(this.deleteConfirmationTemplate){
-      const ref = this.dialog.open(this.deleteConfirmationTemplate);
+      const ref = this.dialog.open(this.deleteConfirmationTemplate , {autoFocus: false});
       this.deleteDialogRef['modal'] = ref;
     }
   }
