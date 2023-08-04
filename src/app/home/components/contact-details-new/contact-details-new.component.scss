@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
 
 .modal-container{
-    height: 100vh ;
+    height: calc(100vh - 60px) ;
     background-color: #FFF6E0;
     padding: 24px ;
     max-width: calc(100% - 48px);
@@ -108,7 +108,7 @@ $phone-icon-size: 25px;
 
 .information-container{
     // height: calc(100% - calc(160px + 48px)); // height of title and actions container is deducted
-    height: calc(100% - 115px);
+    height: calc(100% - 48px);
     overflow-y: auto ;
 }
 
