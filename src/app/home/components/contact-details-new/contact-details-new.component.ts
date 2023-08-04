@@ -92,9 +92,19 @@ export class ContactDetailsNewComponent implements OnInit {
     this.dataEdited = true;
   }
 
+  deleteDialogRef: any = {};
+
   openDeleteConfirmation(){
-    if(this.deleteConfirmationTemplate)
-      this.dialog.open(this.deleteConfirmationTemplate);
+    if(this.deleteConfirmationTemplate){
+      const ref = this.dialog.open(this.deleteConfirmationTemplate);
+      this.deleteDialogRef['modal'] = ref;
+    }
+  }
+
+  closeDeleteModal(confirm: boolean){
+    if(this.deleteDialogRef.modal){
+      this.deleteDialogRef.modal.close();
+    }
   }
 
   close(){
