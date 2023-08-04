@@ -9,6 +9,7 @@ import { ContactDetailsComponent } from './components/contact-details/contact-de
 import { ContactDetailsNewComponent } from './components/contact-details-new/contact-details-new.component';
 import { ContactAddEditComponent } from './components/contact-add-edit/contact-add-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     HomeRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     SharedModule
   ]
 })
