@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ContactDetailsNewComponent } from '../contact-details-new/contact-details-new.component';
 import { ContactAddEditComponent } from '../contact-add-edit/contact-add-edit.component';
 import { ContactDetails } from '../../interfaces/ContactDetails';
+import { PhonebookService } from '../../services/phonebook.service';
 
 @Component({
   selector: 'app-contact-list',
@@ -11,7 +12,10 @@ import { ContactDetails } from '../../interfaces/ContactDetails';
 })
 export class ContactListComponent implements OnInit {
   alphabets: string[] = [] ;
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    public dialog: MatDialog,
+    private phonebookService: PhonebookService
+  ){}
 
   ngOnInit(): void {
     const alpha = Array.from(Array(26)).map((e, i) => i + 65);
