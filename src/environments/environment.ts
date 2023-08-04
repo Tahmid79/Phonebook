@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  phoneBookApiUrl:'localhost:3000'
+  phoneBookApiUrl:'http://localhost:3000'
 };
 
 /*
