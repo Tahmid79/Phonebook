@@ -1,7 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ContactDetails } from '../../interfaces/ContactDetails';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { PhonebookService } from '../../services/phonebook.service';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-contact-add-edit',
@@ -27,12 +29,17 @@ export class ContactAddEditComponent implements OnInit {
   cancel="Cancel";
   save="Save";
 
+  isEditMode = false;
+
   constructor(
       @Inject(MAT_DIALOG_DATA) public data: ContactDetails,
-      private fb: FormBuilder
+      public matDialogRef: MatDialogRef<ContactAddEditComponent>,
+      private fb: FormBuilder,
+      private phonebookService: PhonebookService
     ) {
         if(data){
           this.initEditFormData();
+          this.isEditMode = true;
         }
      }
 
@@ -48,8 +55,16 @@ export class ContactAddEditComponent implements OnInit {
     });
   }
 
-  saveContactDetails(){
-    const val = this.contactFormData.value;
+  async saveContactDetails(){
+    const contactData: ContactDetails = this.contactFormData.value;
+    try{
+      const response = await lastValueFrom(this.phonebookService.addNewContact(contactData));
+      if(response){
+        this.matDialogRef.close();
+      }
+    }catch(error){
+      alert('Could not add user');
+    }
   }
 
 }

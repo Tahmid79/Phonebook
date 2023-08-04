@@ -18,4 +18,9 @@ export class PhonebookService {
     return this.http.get<ContactDetails[]>(url);
   }
 
+  addNewContact(contact: ContactDetails): Observable<ContactDetails>{
+    const url = this.phonebookApiUrl + '/users';
+    return this.http.post<ContactDetails>(url, contact);
+  }
+
 }
