@@ -33,7 +33,7 @@ export class ContactListComponent implements OnInit {
   }
 
   openContactDetails(contact: ContactDetails){
-      this.dialog.open(ContactDetailsNewComponent, {data: contact}) ;
+    this.dialog.open(ContactDetailsNewComponent, {data: contact}) ;
   }
 
   addNewContact(){

@@ -69,16 +69,21 @@ export class ContactDetailsNewComponent implements OnInit {
   openContactDetailsEdit(){
     const dialogRef = this.dialog.open(ContactAddEditComponent, {data: this.data}) ;
     dialogRef.afterClosed().subscribe(result => {
-      // this.initData();
+        if(result.isEdited){
+          this.getUserData();
+        }
     });
   }
 
   async getUserData(){
+    this.loading = true;
     try{
       const user = await lastValueFrom(this.phonebookService.getContactById(this.data.id));
+      if(user){
+        this.data = user;
+      }
     }catch(error){
-
     }
+    this.loading = false;
   }
-
 }

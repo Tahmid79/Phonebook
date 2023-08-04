@@ -65,7 +65,7 @@ export class ContactAddEditComponent implements OnInit {
         response = await lastValueFrom(this.phonebookService.addNewContact(contactData));
       }
       if(response){
-        this.matDialogRef.close();
+        this.matDialogRef.close({isEdited: this.isEditMode});
       }
     }catch(error){
       alert('Could not add user');
