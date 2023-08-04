@@ -58,7 +58,12 @@ export class ContactAddEditComponent implements OnInit {
   async saveContactDetails(){
     const contactData: ContactDetails = this.contactFormData.value;
     try{
-      const response = await lastValueFrom(this.phonebookService.addNewContact(contactData));
+      let response = null;
+      if(this.isEditMode){
+        response = await lastValueFrom(this.phonebookService.saveExistingContact(contactData));
+      }else{
+        response = await lastValueFrom(this.phonebookService.addNewContact(contactData));
+      }
       if(response){
         this.matDialogRef.close();
       }

@@ -20,6 +20,7 @@ export class ContactListComponent implements OnInit {
   alphabets: string[] = [] ;
   alphabetConfig: AlphabetConfig[] = [];
   totalCount = 0;
+  loading = true;
   constructor(
     public dialog: MatDialog,
     private phonebookService: PhonebookService
@@ -36,10 +37,15 @@ export class ContactListComponent implements OnInit {
   }
 
   addNewContact(){
-    this.dialog.open(ContactAddEditComponent) ;
+    const dialogRef = this.dialog.open(ContactAddEditComponent) ;
+    dialogRef.afterClosed().subscribe(result => {
+      this.initData();
+    });
   }
 
   async initData(){
+    this.loading = true;
+    this.alphabetConfig = [];
     try{
       const contactList = await lastValueFrom(this.phonebookService.getContacts());
       contactList.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1);
@@ -62,6 +68,7 @@ export class ContactListComponent implements OnInit {
       });
     }catch(error){
     }
+    this.loading = false;
   }
 
 }

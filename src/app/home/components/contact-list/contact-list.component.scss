@@ -31,6 +31,17 @@
     }
 }
 
+.loading-container{
+    display: flex;
+    .spinner{
+        margin: auto;
+    }
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #523A30 !important;
+}
+
 .brown-color{
     color: #523A30 !important;
 }

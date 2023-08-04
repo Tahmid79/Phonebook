@@ -23,4 +23,9 @@ export class PhonebookService {
     return this.http.post<ContactDetails>(url, contact);
   }
 
+  saveExistingContact(contact: ContactDetails): Observable<ContactDetails>{
+    const url = `${this.phonebookApiUrl}/users/${contact.id}` ;
+    return this.http.put<ContactDetails>(url, contact);
+  }
+
 }
