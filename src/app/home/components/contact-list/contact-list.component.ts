@@ -55,7 +55,7 @@ export class ContactListComponent implements OnInit {
     this.alphabetConfig = [];
     try{
       const contactList = await lastValueFrom(this.phonebookService.getContacts());
-      contactList.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1);
+      contactList.sort((a, b) => ( this.getName(a) > this.getName(b)) ? 1 : -1);
       this.totalCount = contactList && contactList.length ? contactList.length : this.totalCount;
       contactList.map( contact => {
         const firstLetter = contact.firstName.charAt(0).toUpperCase();
