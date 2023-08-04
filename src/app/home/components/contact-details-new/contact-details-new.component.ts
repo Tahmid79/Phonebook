@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, TemplateRef } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ContactDetails } from '../../interfaces/ContactDetails';
+import { ContactAddEditComponent } from '../contact-add-edit/contact-add-edit.component';
+import { PhonebookService } from '../../services/phonebook.service';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-contact-details-new',
@@ -7,12 +12,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactDetailsNewComponent implements OnInit {
 
+  @ViewChild('deleteConfirmation') deleteConfirmationTemplate: TemplateRef<any> | undefined;
+
   numbers: string[] = ['+88 017 XXXXXXX' , '+60 011 XXXXXXX'] ;
   phone1 = '+88 017 XXXXXXX' ;
   phone2 = '+60 011 XXXXXXX' ;
   email = 'baybaythegoat@gmail.com' ;
-
+  loading = false;
   info = {infoType: 'Email' , infoValue : 'baybaythegoat@gmail.com'} ;
+  dataEdited = false;
+  deleteInProgess = false;
 
   information = [
     // {infoType: 'Email' , infoValue : 'baybaythegoat@gmail.com'},
@@ -21,9 +30,17 @@ export class ContactDetailsNewComponent implements OnInit {
   ] ;
   back = `Back` ;
 
-  constructor() { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: ContactDetails,
+    public dialog: MatDialog,
+    public matDialogRef: MatDialogRef<ContactDetailsNewComponent>,
+    private phonebookService: PhonebookService
+  ){}
 
   ngOnInit(): void {
+    if(!this.data){
+      this.data = this.sampleContact;
+    }
   }
 
   loremIpsum = `Lorem ipsum dolor sit amet, consectetur
@@ -33,5 +50,79 @@ export class ContactDetailsNewComponent implements OnInit {
   exercitation ullamco laboris nisi ut aliquip ex
   ea commodo consequat. Duis aute irure
   dolor in reprehenderit in voluptate velit.` ;
+
+  sampleContact: ContactDetails = {
+    id: "1",
+    firstName: 'Bayejeed',
+    middleName: '',
+    lastName: 'Hasan',
+    phone: '+88 017 XXXXXXX',
+    email: 'baybaythegoat@gmail.com',
+    profile: 'www.linkedin.com/237494505/baybay00',
+    address: 'House no. somewhere, Road no. 23',
+    note: this.loremIpsum,
+  };
+
+  getName(): string{
+    const fname = this.data.firstName ? this.data.firstName : '' ;
+    const mname = this.data.middleName ? this.data.middleName : '' ;
+    const lname = this.data.lastName ? this.data.lastName : '' ;
+    const result = `${fname} ${mname} ${lname}`;
+    return result;
+  }
+
+  openContactDetailsEdit(){
+    const dialogRef = this.dialog.open(ContactAddEditComponent, {data: this.data}) ;
+    dialogRef.afterClosed().subscribe(result => {
+        if(result.isEdited){
+          this.getUserData();
+        }
+    });
+  }
+
+  async getUserData(){
+    this.loading = true;
+    try{
+      const user = await lastValueFrom(this.phonebookService.getContactById(this.data.id));
+      if(user){
+        this.data = user;
+      }
+    }catch(error){
+    }
+    this.loading = false;
+    this.dataEdited = true;
+  }
+
+  deleteDialogRef: any = {};
+
+  openDeleteConfirmation(){
+    if(this.deleteConfirmationTemplate){
+      const ref = this.dialog.open(this.deleteConfirmationTemplate , {autoFocus: false});
+      this.deleteDialogRef['modal'] = ref;
+    }
+  }
+
+  async closeDeleteModal(confirm: boolean){
+    if(this.deleteDialogRef.modal){
+      if(confirm){
+        this.deleteInProgess = true;
+        const response = await lastValueFrom(this.phonebookService.deleteContact(this.data.id));
+        this.deleteInProgess = false;
+        if(response){ // delete successful
+          this.deleteDialogRef.modal.close();
+          this.matDialogRef.close({isDeleted: true});
+        }else{// delete failed
+          this.deleteDialogRef.modal.close();
+          alert("Failed to delete contact");
+        } 
+      }else{
+        this.deleteDialogRef.modal.close();
+      }
+    }
+  }
+
+  close(){
+    this.matDialogRef.close({isEdited: this.dataEdited});
+  }
 
 }

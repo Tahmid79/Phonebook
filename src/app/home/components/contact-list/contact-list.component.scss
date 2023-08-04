@@ -31,6 +31,17 @@
     }
 }
 
+.loading-container{
+    display: flex;
+    .spinner{
+        margin: auto;
+    }
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #523A30 !important;
+}
+
 .brown-color{
     color: #523A30 !important;
 }
@@ -93,13 +104,14 @@
 }
 
 .underline{
-    width: 100%;
+    width: 99%;
     background-color: #816653 ;
     height: 3px ;
     border-radius: 5px;
 }
 
 .name-container{
+    width: 99%;
     margin-top: 0.7em;
     border-radius: 5px ;
     mat-divider{

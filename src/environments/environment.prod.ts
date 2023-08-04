@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  phoneBookApiUrl:'https://phonebook-api-724r.onrender.com'
 };

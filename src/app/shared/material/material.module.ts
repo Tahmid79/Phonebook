@@ -16,8 +16,29 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
-const exports:any = [MatToolbarModule, MatButtonModule, MatIconModule, MatCardModule, MatChipsModule, MatExpansionModule, MatListModule, MatMenuModule, MatFormFieldModule, MatTooltipModule, MatInputModule, MatSelectModule, MatTabsModule, MatTableModule, MatPaginatorModule, MatDialogModule] ;
+const exports: any = [
+  MatToolbarModule,
+  MatButtonModule,
+  MatIconModule,
+  MatCardModule,
+  MatChipsModule,
+  MatExpansionModule,
+  MatListModule,
+  MatMenuModule,
+  MatFormFieldModule,
+  MatTooltipModule,
+  MatInputModule,
+  MatSelectModule,
+  MatTabsModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatDialogModule,
+  MatProgressSpinnerModule,
+  MatProgressBarModule
+] ;
 
 @NgModule({
   declarations: [],

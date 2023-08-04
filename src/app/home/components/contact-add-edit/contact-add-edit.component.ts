@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ContactDetails } from '../../interfaces/ContactDetails';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { PhonebookService } from '../../services/phonebook.service';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-contact-add-edit',
@@ -7,33 +12,76 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactAddEditComponent implements OnInit {
 
-  numbers: string[] = ['+88 017 XXXXXXX' , '+60 011 XXXXXXX'] ;
-  phone1 = '+88 017 XXXXXXX' ;
-  phone2 = '+60 011 XXXXXXX' ;
-  email = 'baybaythegoat@gmail.com' ;
+  contactFormData = this.fb.group({
+    id: [''],
+    firstName: ['', Validators.required],
+    middleName: [''],
+    lastName: [''],
+    age: [''],
+    phone: [''],
+    email: [''],
+    profile: [''],
+    address: [''],
+    note: ['']
+  });
 
-  info = {infoType: 'Email' , infoValue : 'baybaythegoat@gmail.com'} ;
-
-  information = [
-    // {infoType: 'Email' , infoValue : 'baybaythegoat@gmail.com'},
-    {infoType: 'Profile' , infoValue : 'www.linkedin.com/237494505/baybay00'},
-    {infoType: 'Address' , infoValue : 'House no. somewhere, Road no. 23'},
-  ] ;
   back = `Back` ;
-  cancel="Cancel";
+  cancelText="Cancel";
   save="Save";
 
-  constructor() { }
+  isEditMode = false;
+
+  constructor(
+      @Inject(MAT_DIALOG_DATA) public data: ContactDetails,
+      public matDialogRef: MatDialogRef<ContactAddEditComponent>,
+      private fb: FormBuilder,
+      private phonebookService: PhonebookService
+    ) {
+        if(data){
+          this.initEditFormData();
+          this.isEditMode = true;
+        }
+     }
 
   ngOnInit(): void {
   }
 
-  loremIpsum = `Lorem ipsum dolor sit amet, consectetur
-  adipiscing elit, sed do eiusmod tempor 
-  incididunt ut labore et dolore magna aliqua.
-  Ut enim ad minim veniam, quis nostrud
-  exercitation ullamco laboris nisi ut aliquip ex
-  ea commodo consequat. Duis aute irure
-  dolor in reprehenderit in voluptate velit.` ;
+  initEditFormData(){
+    const props = Object.keys(this.data);
+    props.map( prop => {
+      if(this.data[prop as keyof typeof this.data]){
+          this.contactFormData.controls[prop].setValue(this.data[prop as keyof typeof this.data]);
+      }
+    });
+  }
+
+  async saveContactDetails(){
+    if(this.contactFormData.invalid)return;
+    const contactData: ContactDetails = this.contactFormData.value;
+    try{
+      let response = null;
+      if(this.isEditMode){
+        response = await lastValueFrom(this.phonebookService.saveExistingContact(contactData));
+        if(response){
+          this.matDialogRef.close({isEdited: this.isEditMode});
+        }else{
+          alert('Could not edit user');
+        }
+      }else{
+        response = await lastValueFrom(this.phonebookService.addNewContact(contactData));
+        if(response){
+          this.matDialogRef.close({isCreated: true});
+        }else{
+          alert('Could not add user');
+        }
+      }
+    }catch(error){
+      alert('Error');
+    }
+  }
+
+  cancel(){
+    this.matDialogRef.close();
+  }
 
 }

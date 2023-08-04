@@ -2,22 +2,24 @@
 <div class="actions-container" fxLayout="row" fxLayoutAlign="space-between center">
     <div class="back-container" fxLayout="row" fxLayoutAlign="center center">
         <div class="pointer" fxLayout="row" fxLayoutAlign="start center">
-            <h3 class="back-button" mat-dialog-close >{{cancel}}</h3>
+            <h3 class="back-button" mat-dialog-close >{{cancelText}}</h3>
         </div>
     </div>
-    <div class="save-container" fxLayout="row" fxLayoutAlign="center center">
-        <div class="pointer" fxLayout="row" fxLayoutAlign="start center">
-            <h3 class="save-button" mat-dialog-close >{{save}}</h3>
+    <div class="save-container" [ngClass]="{'save-disabled': !contactFormData.valid }"
+         fxLayout="row" fxLayoutAlign="center center">
+        <div [ngClass]="{'pointer': contactFormData.valid }" fxLayout="row" fxLayoutAlign="start center">
+            <h3 class="save-button" (click)="saveContactDetails()" >{{save}}</h3>
         </div>
     </div>
 </div>
 
 <div class="modal-container" ngClass.gt-sm="large-size" ngClass.lt-md="small-size" >
-
     <div class="information-container">
-
+        <form [formGroup]="contactFormData" >
         <div class="profile-img-container" fxLayout="column" fxLayoutAlign="center center">
-            <h1 class="info-title overflow-ellipsis new-contact" >New Contact</h1>
+            <h1 class="info-title overflow-ellipsis new-contact" >
+                {{ data ? 'Edit Contact' : 'New Contact' }}
+            </h1>
             <div class="person-icon-container">
                 <mat-icon>person</mat-icon>
             </div>
@@ -26,15 +28,15 @@
         <div class="form-field-container">
             <mat-form-field appearance="fill" >
                 <mat-label>First Name</mat-label>
-                <input matInput>
+                <input matInput formControlName="firstName" required>
             </mat-form-field>
             <mat-form-field appearance="fill" >
                 <mat-label>Middle Name</mat-label>
-                <input matInput>
+                <input matInput formControlName="middleName">
             </mat-form-field>
             <mat-form-field appearance="fill" >
                 <mat-label>Last Name</mat-label>
-                <input matInput>
+                <input matInput formControlName="lastName">
             </mat-form-field>
             <div class="underline-narrow" ></div>
         </div>
@@ -42,7 +44,7 @@
         <div class="form-field-container">
             <mat-form-field appearance="fill" >
                 <mat-label>Phone</mat-label>
-                <input matInput>
+                <input matInput formControlName="phone">
             </mat-form-field>
             <div class="underline-narrow" ></div>
         </div>
@@ -50,7 +52,7 @@
         <div class="form-field-container">
             <mat-form-field appearance="fill" >
                 <mat-label>Email</mat-label>
-                <input matInput>
+                <input matInput formControlName="email">
             </mat-form-field>
             <div class="underline-narrow" ></div>
         </div>
@@ -58,17 +60,17 @@
         <div class="form-field-container">
             <mat-form-field appearance="fill" >
                 <mat-label>Profile</mat-label>
-                <input matInput>
+                <input matInput formControlName="profile">
             </mat-form-field>
-            <div class="underline-narrow" ></div>
+            <div class="underline-narrow"></div>
         </div>
 
         <div class="form-field-container">
             <mat-form-field appearance="fill" >
                 <mat-label>Address</mat-label>
-                <input matInput >
+                <input matInput formControlName="address" >
             </mat-form-field>
-            <div class="underline-narrow" ></div>
+            <div class="underline-narrow"></div>
         </div>
 
         <div class="form-field-container">
@@ -76,11 +78,10 @@
                 <!-- <h1 class="info-title overflow-ellipsis" >Notes</h1> -->
                 <mat-form-field class="note-form-field" appearance="fill" >
                     <mat-label>Notes</mat-label>
-                    <textarea matInput ></textarea>
+                    <textarea matInput formControlName="note"></textarea>
                 </mat-form-field>
             </div>  
         </div>
-
+    </form>
     </div>
-
 </div>

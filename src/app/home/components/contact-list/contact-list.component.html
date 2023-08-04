@@ -23,20 +23,18 @@
     </div>
 </div>
 <div ngClass.gt-xs="view" ngClass.xs="mobile-view" >
-    <div ngClass.gt-xs="container" ngClass.xs="container-mobile" >
-    
-
+    <div *ngIf="!loading" ngClass.gt-xs="container" ngClass.xs="container-mobile" >
         <div class="contact-container" >
-            <ng-container *ngFor="let alphabet of alphabets">
+            <ng-container *ngFor="let config of alphabetConfig">
                 <div class="contact-list">
                     <div class="contact-alphabet" >
-                        <h1 class="alphabet" >{{alphabet}}</h1>
+                        <h1 class="alphabet" >{{config.alphabet}}</h1>
                         <div class="underline" ></div>
                     </div>
                     <div class="list">
-                        <ng-container *ngFor="let i of [1,2,3]">
-                            <div class="name-container" (click)="openContactDetails()" >
-                                <h3>Name</h3>
+                        <ng-container *ngFor="let contact of config.contacts">
+                            <div class="name-container" (click)="openContactDetails(contact)" >
+                                <h3>{{ getName(contact) }}</h3>
                                 <mat-divider></mat-divider>
                             </div>
                         </ng-container>
@@ -44,10 +42,11 @@
                 </div>
             </ng-container>
         </div>
-
         <div class="count-container" fxLayout="row" fxLayoutAlign="center center">
-            <h3 class="count">7 Contacts</h3>
+            <h3 class="count">{{totalCount}} Contacts</h3>
         </div>
-
+    </div>
+    <div *ngIf="loading" class="loading-container" ngClass.gt-xs="container" ngClass.xs="container-mobile" >
+        <mat-spinner diameter="150" class="spinner"></mat-spinner>
     </div>
 </div>
