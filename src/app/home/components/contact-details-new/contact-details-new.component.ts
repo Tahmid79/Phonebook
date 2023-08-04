@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, TemplateRef } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ContactDetails } from '../../interfaces/ContactDetails';
 import { ContactAddEditComponent } from '../contact-add-edit/contact-add-edit.component';
@@ -11,6 +11,8 @@ import { lastValueFrom } from 'rxjs';
   styleUrls: ['./contact-details-new.component.scss']
 })
 export class ContactDetailsNewComponent implements OnInit {
+
+  @ViewChild('deleteConfirmation') deleteConfirmationTemplate: TemplateRef<any> | undefined;
 
   numbers: string[] = ['+88 017 XXXXXXX' , '+60 011 XXXXXXX'] ;
   phone1 = '+88 017 XXXXXXX' ;
@@ -88,6 +90,11 @@ export class ContactDetailsNewComponent implements OnInit {
     }
     this.loading = false;
     this.dataEdited = true;
+  }
+
+  openDeleteConfirmation(){
+    if(this.deleteConfirmationTemplate)
+      this.dialog.open(this.deleteConfirmationTemplate);
   }
 
   close(){
