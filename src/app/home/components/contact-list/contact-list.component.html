@@ -35,7 +35,7 @@
                     </div>
                     <div class="list">
                         <ng-container *ngFor="let contact of config.contacts">
-                            <div class="name-container" (click)="openContactDetails()" >
+                            <div class="name-container" (click)="openContactDetails(contact)" >
                                 <h3>{{contact.firstName}}</h3>
                                 <mat-divider></mat-divider>
                             </div>

@@ -31,8 +31,8 @@ export class ContactListComponent implements OnInit {
     this.initData();
   }
 
-  openContactDetails(){
-      this.dialog.open(ContactDetailsNewComponent) ;
+  openContactDetails(contact: ContactDetails){
+      this.dialog.open(ContactDetailsNewComponent, {data: contact}) ;
   }
 
   addNewContact(){
